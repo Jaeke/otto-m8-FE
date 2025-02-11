@@ -1,0 +1,9 @@
+/* Base Spacing Unit */
+$spacing-unit: 16px;
+
+/* Spacing Scale */
+$spacing-xs: $spacing-unit * 0.25; // 4px
+$spacing-sm: $spacing-unit * 0.5; // 8px
+$spacing-md: $spacing-unit; // 16px
+$spacing-lg: $spacing-unit * 1.5; // 24px
+$spacing-xl: $spacing-unit * 2; // 32px
