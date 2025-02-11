@@ -1,0 +1,44 @@
+// These imports are here since this scss file is outside the scope of alias
+@use './variables/typography' as *;
+@use './breakpoints/screen' as *;
+@use './themes/index' as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #111111 rgba(0, 0, 0, 0.25);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #686a6d;
+  border-radius: 5px;
+}
+
+:root {
+  width: 100%; // Ensures full width
+  height: 100dvh; // Adjusts to dynamic viewport height
+  overflow-x: hidden; // Prevents horizontal scrolling
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: $font-family-primary;
+  color: var(--text-color-primary);
+}
+
+code,
+pre {
+  font-family: $font-family-code;
+}

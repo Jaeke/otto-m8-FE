@@ -1,0 +1,14 @@
+.app {
+  @include flex-center;
+  flex-direction: column;
+
+  &__container {
+    @include flex-row;
+  }
+
+  &__card {
+    @include flex-column;
+    align-items: center;
+    gap: $spacing-md;
+  }
+}
