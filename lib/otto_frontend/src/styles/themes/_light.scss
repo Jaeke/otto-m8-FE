@@ -1,19 +1,35 @@
 [data-theme='light'] {
   // Background
   --bg-color-primary: #ffffff;
+  --bg-color-secondary: #f7f6f3;
 
   // Text
-  --text-color-primary: #0d0e0e;
-  --text-color-secondary: #797c81;
+  --text-color-primary: #37352f;
+  --text-color-secondary: #787774;
 
   // Border
-  --box-border-color: #dadce1f9;
+  --border-color-primary: #f1f1ef;
 
-  // Buttons
-  --button-bg-primary: #f3f5f7;
-  --button-bg-secondary: #e7ebee;
+  // Hover
+  --bg-hover-primary: #f1f1ef;
 
-  // Hover Effects
-  --bg-hover-primary: #0d0e0e;
-  --text-hover-primary: #e7ebee;
+  // Text & Icon Accent
+  --text-accent-brown: #9f6b53;
+  --text-accent-orange: #d9730d;
+  --text-accent-yellow: #cb912f;
+  --text-accent-green: #448361;
+  --text-accent-blue: #337ea9;
+  --text-accent-purple: #9065b0;
+  --text-accent-pink: #c14c8a;
+  --text-accent-red: #d44c47;
+
+  // Background Accent
+  --bg-accent-brown: #f4eeee;
+  --bg-accent-orange: #faebdd;
+  --bg-accent-yellow: #fbf3db;
+  --bg-accent-green: #edf3ec;
+  --bg-accent-blue: #e7f3f8;
+  --bg-accent-purple: #f6f3f9;
+  --bg-accent-pink: #faf1f5;
+  --bg-accent-red: #fdebec;
 }

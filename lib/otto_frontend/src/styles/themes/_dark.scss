@@ -1,19 +1,35 @@
 [data-theme='dark'] {
   // Background
-  --bg-color-primary: #1f1f1f;
+  --bg-color-primary: #2f3438;
+  --bg-color-secondary: #373c3f;
 
   // Text
-  --text-color-primary: #e7dfdf;
-  --text-color-secondary: #b9bab3;
+  --text-color-primary: #ffffff;
+  --text-color-secondary: #979a9b;
 
   // Border
-  --box-border-color: #242424;
+  --border-color-primary: #454b4e;
 
-  // Buttons
-  --button-bg-primary: #2c2f33;
-  --button-bg-secondary: #313537;
+  // Hover
+  --bg-hover-primary: #3f4448;
 
-  // Hover Effects
-  --bg-hover-primary: #f5f7f8;
-  --text-hover-primary: #292d31;
+  // Text & Icon Accent
+  --text-accent-brown: #937264;
+  --text-accent-orange: #ffa344;
+  --text-accent-yellow: #ffdc49;
+  --text-accent-green: #4dab9a;
+  --text-accent-blue: #529cca;
+  --text-accent-purple: #9a6dd7;
+  --text-accent-pink: #e255a1;
+  --text-accent-red: #ff7369;
+
+  // Background Accent
+  --bg-accent-brown: #594a3a;
+  --bg-accent-orange: #594a3a;
+  --bg-accent-yellow: #59563b;
+  --bg-accent-green: #354c4b;
+  --bg-accent-blue: #364954;
+  --bg-accent-purple: #443f57;
+  --bg-accent-pink: #533b4c;
+  --bg-accent-red: #594141;
 }
