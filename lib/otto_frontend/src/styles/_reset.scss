@@ -1,5 +1,6 @@
 // These imports are here since this scss file is outside the scope of alias
 @use './variables/typography' as *;
+@use './variables/spacing' as *;
 @use './breakpoints/screen' as *;
 @use './themes/index' as *;
 
@@ -36,7 +37,7 @@ body {
   width: 100%;
   font-family: $font-family-primary;
   color: var(--text-color-primary);
-  background-color: var(--bg-color-primary);
+  background-color: var(--bg-color-secondary);
 }
 
 code,

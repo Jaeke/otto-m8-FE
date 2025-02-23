@@ -1,0 +1,140 @@
+@keyframes jump {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+}
+
+.button {
+  font-family: $font-family-primary;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: $spacing-sm;
+  cursor: pointer;
+  font-weight: 400;
+  border-radius: $radius-md;
+  padding: $spacing-xs $spacing-md; // Default (md)
+  border: none;
+  background-color: var(--bg-color-secondary);
+  color: var(--text-color-primary);
+  transition: all 0.3s ease-in-out;
+
+  &--bordered {
+    border: solid 1px var(--border-color-primary);
+  }
+
+  &--button {
+    &:hover {
+      background-color: var(--text-color-primary);
+      color: var(--bg-color-secondary);
+    }
+  }
+
+  &--toggled {
+    background-color: var(--text-color-primary);
+    color: var(--bg-color-secondary);
+
+    &:hover {
+      background-color: var(--bg-hover-primary);
+      color: var(--text-color-primary);
+    }
+  }
+
+  &--submit {
+    svg {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+    &:hover {
+      background-color: var(--bg-accent-blue);
+      color: var(--text-accent-blue);
+
+      svg {
+        transform: translateX(6px);
+      }
+    }
+  }
+
+  &--reset {
+    &:hover {
+      background-color: var(--bg-accent-red);
+      color: var(--text-accent-red);
+    }
+  }
+
+  &--fill {
+    width: 100%;
+
+    svg {
+      scale: 1;
+    }
+  }
+
+  &--sm {
+    font-size: $font-size-small;
+    padding: $spacing-xs $spacing-sm;
+
+    svg {
+      scale: 0.8;
+    }
+  }
+
+  &--md {
+    font-size: $font-size-medium;
+    padding: $spacing-sm $spacing-md;
+
+    svg {
+      scale: 1;
+    }
+  }
+
+  &--lg {
+    font-size: $font-size-large;
+    padding: $spacing-xs $spacing-lg;
+
+    svg {
+      scale: 1.2;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  &--loading {
+    pointer-events: none;
+    position: relative;
+    background-color: var(--bg-accent-orange);
+    color: var(--text-accent-orange);
+  }
+
+  &__icon {
+    @include flex-center;
+  }
+
+  &__loader {
+    @include flex-row;
+    gap: $spacing-xs;
+    text-transform: uppercase;
+
+    &-dot {
+      display: inline-block;
+      animation: jump 1.2s infinite ease-in-out;
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+}
