@@ -13,6 +13,10 @@ enum ApiMethods {
 export enum EndpointKeys {
   USER_LOGIN = 'USER_LOGIN',
   USER_LOGOUT = 'USER_LOGOUT',
+  GET_WORKFLOWS = "GET_WORKFLOWS",
+  CREATE_DRAFT_WORKFLOW = "CREATE_DRAFT_WORKFLOW",
+  UPDATE_DRAFT_WORKFLOW = "UPDATE_DRAFT_WORKFLOW",
+  DEPLOY_WORKFLOW = "DEPLOY_WORKFLOW",
 }
 
 export interface EndpointType<Params, Body, Response> {
@@ -26,6 +30,10 @@ export interface EndpointType<Params, Body, Response> {
 export interface ApiEndpointsType {
   [EndpointKeys.USER_LOGIN]: EndpointType<null, LoginBody, LoginResponse>;
   [EndpointKeys.USER_LOGOUT]: EndpointType<null, null, LogoutResponse>;
+  [EndpointKeys.GET_WORKFLOWS]: EndpointType<null, null, null>;
+  [EndpointKeys.CREATE_DRAFT_WORKFLOW]: EndpointType<null, null, null>;
+  [EndpointKeys.UPDATE_DRAFT_WORKFLOW]: EndpointType<null, null, null>;
+  [EndpointKeys.DEPLOY_WORKFLOW]: EndpointType<null, null, null>;
 }
 
 export const Endpoints = {
@@ -35,6 +43,22 @@ export const Endpoints = {
   },
   [EndpointKeys.USER_LOGOUT]: {
     url: () => `/logout/`,
+    method: ApiMethods.POST,
+  },
+  [EndpointKeys.GET_WORKFLOWS]: {
+    url: () => `/workflows/`,
+    method: ApiMethods.GET,
+  },
+  [EndpointKeys.CREATE_DRAFT_WORKFLOW]: {
+    url: () => `/create_draft_workflow/`,
+    method: ApiMethods.POST,
+  },
+  [EndpointKeys.UPDATE_DRAFT_WORKFLOW]: {
+    url: () => `/update_draft_workflow/`,
+    method: ApiMethods.POST,
+  },
+  [EndpointKeys.DEPLOY_WORKFLOW]: {
+    url: () => `/deploy_workflow/`,
     method: ApiMethods.POST,
   },
 }

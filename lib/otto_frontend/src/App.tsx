@@ -1,11 +1,14 @@
+import Layout from './layouts/Layout';
+
+import { Router } from './router';
+
 import '@/styles/main.scss';
 
 function App() {
   return (
-    <div className="app">
-      <p>hello world</p>
-      <div>HI THERE</div>
-    </div>
+    <Layout>
+      <Router />
+    </Layout>
   );
 }
 
