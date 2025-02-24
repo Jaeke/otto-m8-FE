@@ -4,21 +4,7 @@
 
   &__headers {
     @include flex-column;
+    gap: $spacing-sm;
     font-family: $font-family-primary;
-
-    h1 {
-      padding: 0px;
-      margin: 0px;
-      font-weight: 600;
-    }
-  }
-
-  &__main-header {
-    text-transform: capitalize;
-    color: var(--text-color-primary);
-  }
-
-  &__sub-header {
-    color: var(--text-color-secondary);
   }
 }

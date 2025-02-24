@@ -1,0 +1,59 @@
+.typography {
+  &__header {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family-primary;
+    color: var(--text-color-primary);
+
+    &--light {
+      font-weight: 300;
+    }
+
+    &--regular {
+      font-weight: 400;
+    }
+
+    &--medium {
+      font-weight: 600;
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+
+    &--main {
+      color: var(--text-accent-orange);
+    }
+
+    &--sub {
+      color: var(--text-color-secondary);
+    }
+  }
+
+  &__text {
+    font-family: $font-family-primary;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+
+    &--light {
+      font-weight: 300;
+    }
+
+    &--regular {
+      font-weight: 400;
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+
+    &--default {
+      color: var(--text-color-primary);
+    }
+
+    &--muted {
+      color: var(--text-color-secondary);
+    }
+  }
+}
