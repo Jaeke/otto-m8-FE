@@ -1,4 +1,4 @@
-import { LoginBody, LoginResponse, LogoutResponse } from "@/types/api";
+import { DeleteDraftWorkflowResponse, DraftWorkflow, LoginBody, LoginResponse, LogoutResponse, PostDraftWorkflowBody, PostDraftWorkflowResponse } from "@/types/api";
 
 export const baseAPI = import.meta.env.VITE_BASE_API_URL;
 
@@ -13,10 +13,9 @@ enum ApiMethods {
 export enum EndpointKeys {
   USER_LOGIN = 'USER_LOGIN',
   USER_LOGOUT = 'USER_LOGOUT',
-  GET_WORKFLOWS = "GET_WORKFLOWS",
-  CREATE_DRAFT_WORKFLOW = "CREATE_DRAFT_WORKFLOW",
-  UPDATE_DRAFT_WORKFLOW = "UPDATE_DRAFT_WORKFLOW",
-  DEPLOY_WORKFLOW = "DEPLOY_WORKFLOW",
+  GET_DRAFT_WORKFLOWS = "GET_DRAFT_WORKFLOWS",
+  CREATE_DRAFT_WORKFLOW = 'CREATE_DRAFT_WORKFLOW',
+  DELETE_DRAFT_WORKFLOW = 'DELETE_DRAFT_WORKFLOW'
 }
 
 export interface EndpointType<Params, Body, Response> {
@@ -28,15 +27,20 @@ export interface EndpointType<Params, Body, Response> {
 }
 
 export interface ApiEndpointsType {
+  // Auth
   [EndpointKeys.USER_LOGIN]: EndpointType<null, LoginBody, LoginResponse>;
   [EndpointKeys.USER_LOGOUT]: EndpointType<null, null, LogoutResponse>;
-  [EndpointKeys.GET_WORKFLOWS]: EndpointType<null, null, null>;
-  [EndpointKeys.CREATE_DRAFT_WORKFLOW]: EndpointType<null, null, null>;
-  [EndpointKeys.UPDATE_DRAFT_WORKFLOW]: EndpointType<null, null, null>;
-  [EndpointKeys.DEPLOY_WORKFLOW]: EndpointType<null, null, null>;
+  // Workflows
+  [EndpointKeys.GET_DRAFT_WORKFLOWS]: EndpointType<null, null, DraftWorkflow[]>;
+  [EndpointKeys.CREATE_DRAFT_WORKFLOW]: EndpointType<null, PostDraftWorkflowBody, PostDraftWorkflowResponse>;
+  [EndpointKeys.DELETE_DRAFT_WORKFLOW]: EndpointType<null, null, DeleteDraftWorkflowResponse>;
 }
 
-export const Endpoints = {
+export const Endpoints: Record<
+  EndpointKeys,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  { url: (arg?: any) => string; method: ApiMethods }
+> = {
   [EndpointKeys.USER_LOGIN]: {
     url: () => `/login/`,
     method: ApiMethods.POST,
@@ -45,20 +49,16 @@ export const Endpoints = {
     url: () => `/logout/`,
     method: ApiMethods.POST,
   },
-  [EndpointKeys.GET_WORKFLOWS]: {
-    url: () => `/workflows/`,
+  [EndpointKeys.GET_DRAFT_WORKFLOWS]: {
+    url: () => `/get_draft_workflows`,
     method: ApiMethods.GET,
   },
   [EndpointKeys.CREATE_DRAFT_WORKFLOW]: {
-    url: () => `/create_draft_workflow/`,
+    url: () => `/create_draft_workflows`,
     method: ApiMethods.POST,
   },
-  [EndpointKeys.UPDATE_DRAFT_WORKFLOW]: {
-    url: () => `/update_draft_workflow/`,
-    method: ApiMethods.POST,
-  },
-  [EndpointKeys.DEPLOY_WORKFLOW]: {
-    url: () => `/deploy_workflow/`,
+  [EndpointKeys.DELETE_DRAFT_WORKFLOW]: {
+    url: (templateId: number) => `/delete_draft_workflow/${templateId}`,
     method: ApiMethods.POST,
   },
 }
