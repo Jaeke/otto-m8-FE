@@ -1,4 +1,5 @@
 import { Button, Header, Text } from '@/components';
+
 import './WorkflowDashboard.scss';
 
 const WorkflowDashboard = () => {
@@ -6,7 +7,7 @@ const WorkflowDashboard = () => {
     <div className="workflow">
       <header className="workflow__headers">
         <div>
-          <Header as="h1" weight="bold">
+          <Header as="h1" weight="medium">
             Worflow Dashboard
           </Header>
           <Header as="h1" type="sub">
@@ -18,7 +19,7 @@ const WorkflowDashboard = () => {
           your own to match your specific workflow needs.
         </Text>
       </header>
-      <Button label="Button Example" type="submit" />
+      <Button label="Button Example" type="button" />
     </div>
   );
 };
