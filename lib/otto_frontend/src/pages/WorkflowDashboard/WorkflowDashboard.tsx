@@ -5,20 +5,20 @@ import './WorkflowDashboard.scss';
 const WorkflowDashboard = () => {
   return (
     <div className="workflow">
-      <header className="workflow__headers">
-        <div>
-          <Header as="h1" weight="medium">
-            Worflow Dashboard
-          </Header>
+      <div className="workflow__header-section">
+        <div className="workflow__headers">
+          <Header as="h1">Worflow Dashboard</Header>
           <Header as="h1" type="sub">
             Get Started
           </Header>
+          <Text as="p" variant="muted">
+            Get started by selecting a template, or take full control and design
+            your own to match your specific workflow needs.
+          </Text>
         </div>
-        <Text as="p" variant="muted">
-          Get started by selecting a template, or take full control and design
-          your own to match your specific workflow needs.
-        </Text>
-      </header>
+
+        <div className="workflow__actions"></div>
+      </div>
       <Button label="Button Example" type="button" />
     </div>
   );

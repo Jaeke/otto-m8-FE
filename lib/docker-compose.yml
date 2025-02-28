@@ -3,21 +3,21 @@ version: '3.8'
 services:
   redis:
     container_name: redis
-    image: "redis:latest"
+    image: 'redis:latest'
     ports:
-      - "6379:6379"
+      - '6379:6379'
     networks:
       - otto_network
 
   postgres:
     container_name: otto-db
-    image: "postgres:latest"
+    image: 'postgres:latest'
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: postgres
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -30,7 +30,7 @@ services:
       - ./dashboard:/app
       - /app/node_modules
     ports:
-      - "3000:3000"
+      - '3000:3000'
     networks:
       - otto_network
     depends_on:

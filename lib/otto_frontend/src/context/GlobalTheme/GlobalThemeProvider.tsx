@@ -6,7 +6,8 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { DefaultProviderProps } from '../../types/context';
+
+import { DefaultProviderProps } from '@/types/context';
 
 // Define the shape of the context's value
 interface GlobalThemeContextProps {

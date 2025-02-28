@@ -1,0 +1,17 @@
+.logo {
+  @include flex-center;
+  width: fit-content;
+  height: fit-content;
+  border: solid 1px var(--border-color-primary);
+  border-radius: $radius-md;
+
+  &--borderless {
+    border: none; // Remove border when `bordered` is false
+  }
+
+  &__image {
+    max-width: 250px; // Ensures it never exceeds this width
+    width: 100%;
+    height: auto;
+  }
+}

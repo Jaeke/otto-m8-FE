@@ -1,4 +1,4 @@
-import { DeleteDraftWorkflowResponse, DraftWorkflow, LoginBody, LoginResponse, LogoutResponse, PostDraftWorkflowBody, PostDraftWorkflowResponse } from "@/types/api";
+import { DeleteDraftWorkflowResponse, DraftWorkflow, LoginBody, LoginResponse, PostDraftWorkflowBody, PostDraftWorkflowResponse } from "@/types/api";
 
 export const baseAPI = import.meta.env.VITE_BASE_API_URL;
 
@@ -12,7 +12,6 @@ enum ApiMethods {
 
 export enum EndpointKeys {
   USER_LOGIN = 'USER_LOGIN',
-  USER_LOGOUT = 'USER_LOGOUT',
   GET_DRAFT_WORKFLOWS = "GET_DRAFT_WORKFLOWS",
   CREATE_DRAFT_WORKFLOW = 'CREATE_DRAFT_WORKFLOW',
   DELETE_DRAFT_WORKFLOW = 'DELETE_DRAFT_WORKFLOW'
@@ -29,7 +28,6 @@ export interface EndpointType<Params, Body, Response> {
 export interface ApiEndpointsType {
   // Auth
   [EndpointKeys.USER_LOGIN]: EndpointType<null, LoginBody, LoginResponse>;
-  [EndpointKeys.USER_LOGOUT]: EndpointType<null, null, LogoutResponse>;
   // Workflows
   [EndpointKeys.GET_DRAFT_WORKFLOWS]: EndpointType<null, null, DraftWorkflow[]>;
   [EndpointKeys.CREATE_DRAFT_WORKFLOW]: EndpointType<null, PostDraftWorkflowBody, PostDraftWorkflowResponse>;
@@ -42,11 +40,7 @@ export const Endpoints: Record<
   { url: (arg?: any) => string; method: ApiMethods }
 > = {
   [EndpointKeys.USER_LOGIN]: {
-    url: () => `/login/`,
-    method: ApiMethods.POST,
-  },
-  [EndpointKeys.USER_LOGOUT]: {
-    url: () => `/logout/`,
+    url: () => `/login`,
     method: ApiMethods.POST,
   },
   [EndpointKeys.GET_DRAFT_WORKFLOWS]: {

@@ -1,6 +1,14 @@
 import { ReactNode, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import classNames from 'classnames';
+import {
+  IconLogout2,
+  IconMoonStars,
+  IconSunLowFilled,
+} from '@tabler/icons-react';
+
+import { useUserContext } from '@/context/User/UserProvider';
+import { useGlobalThemeContext } from '@/context/GlobalTheme/GlobalThemeProvider';
 
 import './Layout.scss';
 
@@ -9,9 +17,16 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const { isLoggedIn, logout } = useUserContext();
+  const { theme, setThemeState } = useGlobalThemeContext();
+
   const [isExpanded, setIsExpanded] = useState<boolean>(() => {
-    return JSON.parse(localStorage.getItem('sidebarExpanded') || 'false');
+    return JSON.parse(localStorage.getItem('sidebarExpanded') || 'true');
   });
+
+  const toggleTheme = () => {
+    setThemeState({ theme: theme === 'light' ? 'dark' : 'light' });
+  };
 
   const toggleSidebar = () => {
     setIsExpanded((prev) => {
@@ -26,8 +41,9 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="layout">
       <aside
         className={classNames('sidebar', {
-          'sidebar--expanded': isExpanded,
-          'sidebar--collapsed': !isExpanded,
+          'sidebar--expanded': isExpanded && isLoggedIn,
+          'sidebar--collapsed': !isExpanded && isLoggedIn,
+          'sidebar--login': !isLoggedIn,
         })}
       >
         <button className="sidebar__toggle" onClick={toggleSidebar}>
@@ -39,12 +55,24 @@ const Layout = ({ children }: LayoutProps) => {
             })}
           />
         </button>
-        {/* Sidebar Content Here */}
+
+        <button type="button" className="sidebar__button" onClick={toggleTheme}>
+          {theme === 'light' ? <IconSunLowFilled /> : <IconMoonStars />}
+        </button>
+
+        <button
+          type="button"
+          className="sidebar__button"
+          onClick={() => logout()}
+        >
+          <IconLogout2 />
+        </button>
       </aside>
       <main
         className={classNames('content', {
-          'content--expanded': isExpanded,
-          'content--collapsed': !isExpanded,
+          'content--expanded': isExpanded && isLoggedIn,
+          'content--collapsed': !isExpanded && isLoggedIn,
+          'content--login': !isLoggedIn,
         })}
       >
         <Outlet />

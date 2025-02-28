@@ -1,0 +1,55 @@
+.loginpage {
+  @include flex-center;
+  height: 100%;
+  width: 100%;
+
+  &__form-container {
+    @include flex-row;
+    gap: $spacing-md;
+    width: 500px;
+    min-height: 250px;
+    height: 300px;
+  }
+
+  &__form {
+    flex-grow: 1;
+    @include flex-column;
+    justify-content: space-between;
+    border-left: solid 1px var(--border-color-primary);
+    padding-left: $spacing-md;
+  }
+
+  &__error-msg {
+    padding: 0px;
+    margin: 0px;
+    color: var(--text-accent-red);
+  }
+
+  &__form-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.inputfield {
+  @include flex-column;
+  gap: $spacing-xs;
+
+  label {
+    text-transform: capitalize;
+    font-size: $font-size-medium;
+    font-weight: 500;
+    color: var(--text-color-primary);
+  }
+
+  input {
+    font-size: $font-size-medium;
+    outline: none;
+    border: solid 1px var(--border-color-primary);
+    background-color: var(--bg-color-secondary);
+    height: 37px;
+    border-radius: $radius-md;
+    padding: $spacing-sm;
+    color: var(--text-color-primary);
+  }
+}

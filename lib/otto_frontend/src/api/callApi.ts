@@ -3,14 +3,14 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Endpoints, ApiEndpointsType, EndpointKeys, baseAPI } from './apiDefinitions';
 
 const api = axios.create({
-  baseURL: `${baseAPI}`,
+  baseURL: baseAPI,
   withCredentials: true,
 });
 
 // Request interceptor to add the Authorization header to every request
 api.interceptors.request.use(
   (config) => {
-    const accessToken = localStorage.getItem('ssid');
+    const accessToken = localStorage.getItem('authToken');
 
     // Ensure config.headers is an object
     if (!config.headers) {
