@@ -2,8 +2,7 @@
   width: 100%;
   min-height: 50px;
   background-color: var(--bg-color-primary);
-  // border: solid 1px var(--border-color-primary);
-  box-shadow: var(--box-shadow);
+  // box-shadow: var(--box-shadow);
   border-radius: $radius-md;
   transition: background-color 0.3s ease-in-out;
 
@@ -11,8 +10,16 @@
     background-color: var(--bg-color-primary);
   }
 
-  &--secondary {
-    background-color: var(--bg-color-secondary);
+  &--code {
+    background-color: var(--bg-color-code);
+  }
+
+  &--block {
+    background-color: var(--bg-color-block);
+  }
+
+  &--bordered {
+    border: solid 1px var(--border-color-primary);
   }
 
   &--none {

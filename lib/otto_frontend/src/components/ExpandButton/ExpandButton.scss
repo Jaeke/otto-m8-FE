@@ -1,0 +1,62 @@
+.expand-button {
+  @include flex-center;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: var(--text-color-secondary);
+  border-radius: $radius-md;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--bg-hover-primary);
+    color: var(--text-color-primary);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+
+  &__label {
+    font-family: $font-family-primary;
+    opacity: 0;
+    padding-top: 1px;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: $font-size-medium;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  &--expand {
+    @include flex-row;
+    justify-content: flex-start;
+    gap: $spacing-sm;
+    width: 100%;
+    max-width: 200px;
+    border-radius: $radius-md;
+    padding: 0px $spacing-lg;
+
+    .expand-button__label {
+      opacity: 1;
+    }
+  }
+
+  &--toggled {
+    background-color: var(--bg-hover-primary);
+    color: var(--text-color-primary);
+    border: solid 1px var(--border-color-primary);
+
+    &:hover {
+      background-color: var(--text-color-primary);
+      color: var(--bg-color-primary);
+    }
+  }
+}

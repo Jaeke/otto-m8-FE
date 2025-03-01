@@ -12,6 +12,7 @@
   "dependencies": {
     "@tabler/icons-react": "^3.30.0",
     "@types/node": "^22.13.1",
+    "antd": "^5.24.2",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",
     "formik": "^2.4.6",

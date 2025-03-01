@@ -47,7 +47,7 @@
   }
 
   &--submit {
-    svg {
+    .button__icon--suffix {
       transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform;
     }
@@ -55,7 +55,7 @@
       background-color: var(--bg-accent-blue);
       color: var(--text-accent-blue);
 
-      svg {
+      .button__icon--suffix {
         transform: translateX(6px);
       }
     }
@@ -90,7 +90,7 @@
     padding: $spacing-sm $spacing-md;
 
     svg {
-      scale: 1;
+      scale: 0.8;
     }
   }
 
@@ -99,7 +99,7 @@
     padding: $spacing-xs $spacing-lg;
 
     svg {
-      scale: 1.2;
+      scale: 1;
     }
   }
 

@@ -7,3 +7,8 @@ $spacing-sm: $spacing-unit * 0.5; // 8px
 $spacing-md: $spacing-unit; // 16px
 $spacing-lg: $spacing-unit * 1.5; // 24px
 $spacing-xl: $spacing-unit * 2; // 32px
+
+// Define variables for widths
+$sidebar-collapsed-width: 60px;
+$sidebar-expanded-width: 200px;
+$sidebar-login-width: 0px; // Sidebar width when user is not logged in

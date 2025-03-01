@@ -1,0 +1,98 @@
+.sidebar {
+  @include flex-column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--bg-color-secondary);
+  transition: width 0.2s linear, opacity 0.2s linear;
+  overflow: hidden;
+
+  &--collapsed {
+    width: $sidebar-collapsed-width;
+    gap: $spacing-lg;
+  }
+
+  &--expanded {
+    width: $sidebar-expanded-width;
+    gap: $spacing-sm;
+  }
+
+  &--login {
+    display: none;
+    width: $sidebar-login-width;
+    opacity: 0;
+    pointer-events: none; // Prevent interactions when hidden
+  }
+
+  &__actions {
+    width: 100%;
+    flex-shrink: 0; // Prevents shrinking when sidebar resizes
+
+    &--collapsed {
+      @include flex-center;
+      flex-direction: column;
+      gap: $spacing-sm;
+      padding: $spacing-lg $spacing-xs 0px $spacing-xs;
+    }
+
+    &--expanded {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: $spacing-md $spacing-xs 0px $spacing-xs;
+    }
+  }
+
+  &__theme-toggle {
+    &--light {
+      &:hover {
+        color: var(--text-accent-orange) !important;
+        background-color: var(--bg-accent-orange) !important;
+      }
+    }
+
+    &--dark {
+      svg {
+        scale: 0.8;
+      }
+
+      &:hover {
+        color: var(--text-accent-yellow) !important;
+        background-color: var(--bg-accent-yellow) !important;
+      }
+    }
+  }
+
+  &__navigations {
+    @include flex-column;
+    // justify-content: center;
+    gap: $spacing-sm;
+    flex-grow: 1; // Pushes the footer down
+    overflow-y: auto; // Enables scrolling if content overflows
+    padding: $spacing-sm;
+  }
+
+  &__navigations-header {
+    padding-left: $spacing-sm;
+  }
+
+  &__navigations-list {
+    @include flex-column;
+    gap: $spacing-sm;
+    height: fit-content;
+    align-items: center;
+    // border: solid 1px var(--border-color-primary);
+    // padding: $spacing-md 0px;
+    // border-radius: $radius-md;
+    // background-color: var(--bg-color-block);
+  }
+
+  &__footer {
+    @include flex-center;
+    flex-direction: column;
+    width: 100%;
+    padding: $spacing-md $spacing-sm;
+    flex-shrink: 0; // Prevents footer from shrinking when content grows
+  }
+}

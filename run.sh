@@ -34,7 +34,7 @@ trap cleanup SIGINT
 
 # Navigate to the FastAPI directory (update this path to the correct one)
 cd "./otto_backend/" || exit
-mkdir -p .cache
+mkdir .cache
 
 
 echo "Building slim base image..."
@@ -57,32 +57,8 @@ echo "Building and running Docker Compose with $COMPOSE_FILE and CAN_DEPLOY_WORK
 docker compose -f "$COMPOSE_FILE" up -d
 
 
-# Navigate to the new frontend directory
-cd "../otto_frontend" || exit
-
-# Install frontend dependencies and build
-echo "Installing frontend dependencies with Yarn..."
-yarn install --frozen-lockfile
-
-echo "Building frontend..."
-yarn build
-
-# Start the frontend server
-echo "Starting frontend (Vite) server..."
-yarn dev &
-
-# Echo the updated React app URL
+# Echo the react app URL
 echo "Otto Dashboard URL: http://localhost:3000"
 echo "Otto Server URL: http://localhost:8000"
 
 docker logs -f otto-server
-# Navigate back to backend directory
-cd "../otto_backend" || exit
-
-# Install backend dependencies
-echo "Installing backend dependencies..."
-poetry install
-
-# Start the FastAPI server using Uvicorn
-echo "Starting FastAPI server..."
-poetry run uvicorn client:app --host 0.0.0.0 --port 8000 --reload
